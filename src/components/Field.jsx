@@ -3,7 +3,10 @@ import { MdArrowBack } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import multimedia from "./multimedia";
 import MenuItem from "./MenuItem"; // Corrected import
-import bgImg from "./images/back.jpg";
+import ambani from "./images/ambani.jpg";
+import virat from "./images/virat.jpg";
+import google from "./images/google.jpg";
+import vinita from "./images/vinita.jpg";
 const Field = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -12,7 +15,7 @@ const Field = () => {
 
   return (
     <>
-      <div className="field-navbar flex justify-around items-center text-center bg-transparent h-[50px] cursor-pointer text-black">
+      <div className="field-navbar flex justify-around items-center text-center bg-[#DBFFCB] h-[50px] cursor-pointer text-black">
         <div className=" justify-around text-center ml-[-18rem] flex items-center gap-2 ">
           <div className="back max-[900px]:ml-[10rem]" onClick={handleGoBack}>
             <MdArrowBack />
@@ -28,7 +31,35 @@ const Field = () => {
         </nav>
       </div>
       <div className="below-part cursor-pointer">
-        <img src={bgImg} alt="" className="w-[98rem] h-[93vh]" />
+        {/* <img src={} alt="" className="w-[98rem] h-[93vh]" /> */}
+        <div className="heading font-sans text-center font-bold text-[2em] mt-[5em]">
+          <h1>
+            "The future belongs to those who choose with courage, not with
+            fear."
+          </h1>
+        </div>
+        <div className="img flex justify-center  gap-[60px] mt-[5rem] ">
+          <img
+            src={ambani}
+            alt=""
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+          />
+          <img
+            src={vinita}
+            alt=""
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+          />
+          <img
+            src={virat}
+            alt=""
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+          />
+          <img
+            src={google}
+            alt=""
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+          />
+        </div>
       </div>
     </>
   );

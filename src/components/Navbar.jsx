@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import mentor from "./images/mento1.jpg";
 import men2 from "./images/men2.jpg";
 import men3 from "./images/men3.jpg";
+import { CiLinkedin } from "react-icons/ci";
 
 const Navbar = () => {
   useEffect(() => {
@@ -89,7 +90,7 @@ const Navbar = () => {
         </h1>
       </section>
       <div
-        className="about bg-transparent w-[100%] h-[38rem] text-black"
+        className="about bg-transparent w-[100%] h-[30rem] text-black"
         data-aos="fade-up"
         data-aos-duration="3000"
         data-aos-delay="1000"
@@ -237,62 +238,59 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="footer bg-black mt-[60px] cursor-pointer">
-          <div className="footer-contain  flex justify-around">
-            <div className="footer-main">
-              <h1 className="footer-head  text-[16px] font-light mb-[20px]">
-                Experinced Menot's
-              </h1>
-              <ul className=" footer-ul text-[12px] leading-[23px] hover:text-white">
-                <li className="hover:text-white">Ritehs Agarwal</li>
-                <li className="hover:text-white">Ritehs Agarwal</li>
-                <li className="hover:text-white">Ritehs Agarwal</li>
-                <li className="hover:text-white">Ritehs Agarwal</li>
-              </ul>
-            </div>
-            <div className="footer-main">
-              <h1 className="footer-head text-[16px] font-light mb-[20px]">
-                Facilities
-              </h1>
-              <ul className="footer-ul text-[12px] leading-[23px] hover:text-white">
-                <NavLink to={"/Query"}>
-                  <li className="hover:text-white">Mentor's Talk</li>
-                </NavLink>
-                <NavLink to={"/Query"}>
-                  <li className="hover:text-white">Ask any Query</li>
-                </NavLink>
-                <NavLink to={"/Field"}>
-                  <li className="hover:text-white">ALL Field</li>
-                </NavLink>
-                <NavLink to={"/Videos"}>
-                  <li className="hover:text-white">Videos of Mentor's</li>
-                </NavLink>
-                <NavLink to={"/FeedBack"}>
-                  <li className="hover:text-white">FeedBack</li>
-                </NavLink>
-              </ul>
-            </div>
-            <div className="footer-main">
-              <h1 className="footer-head text-[16px] font-light mb-[20px]">
-                Students Benefits
-              </h1>
-              <ul className=" footer-ul text-[12px] leading-[23px]">
-                <li className="hover:text-white">Learn about your Interest</li>
-                <li className="hover:text-white">free to talk</li>
-                <li className="hover:text-white">No need to registration</li>
-                <li className="hover:text-white">easly get you path</li>
-                <li className="hover:text-white"></li>
-                <li className="hover:text-white">Ritehs Agarwal</li>
-              </ul>
-            </div>
-          </div>
-          <div className="contact">
-            <h1 className="text-white mt-[15rem] ml-[77rem]">
-              Take a Step Towards your dream
-            </h1>
-          </div>
+
+  <div className="footer fixed bottom-0 w-full bg-black text-white py-6 px-10">
+  <div className="footer-contain flex justify-around">
+    {/* Experienced Mentors */}
+    <div className="footer-main">
+      <h1 className="text-[16px] font-light mb-[20px]">Experienced Mentors</h1>
+      <ul className="text-[12px] leading-[23px]">
+        <li className="hover:text-gray-300">Ritesh Agarwal</li>
+        <li className="hover:text-gray-300">Ritesh Agarwal</li>
+        <li className="hover:text-gray-300">Ritesh Agarwal</li>
+        <li className="hover:text-gray-300">Ritesh Agarwal</li>
+      </ul>
+    </div>
+
+    {/* Facilities */}
+    <div className="footer-main">
+      <h1 className="text-[16px] font-light mb-[20px]">Facilities</h1>
+      <ul className="text-[12px] leading-[23px]">
+        <NavLink to="/Query"><li className="hover:text-gray-300">Mentor's Talk</li></NavLink>
+        <NavLink to="/Ques"><li className="hover:text-gray-300">Q&A Hub</li></NavLink>
+        <NavLink to="/Field"><li className="hover:text-gray-300">All Fields</li></NavLink>
+        <NavLink to="/FeedBack"><li className="hover:text-gray-300">Feedback</li></NavLink>
+      </ul>
+    </div>
+
+    {/* Student Benefits */}
+    <div className="footer-main">
+      <h1 className="text-[16px] font-light mb-[20px]">Students Benefits</h1>
+      <ul className="text-[12px] leading-[23px]">
+        <li className="hover:text-gray-300">Learn about your interest</li>
+        <li className="hover:text-gray-300">Free to talk</li>
+        <li className="hover:text-gray-300">No registration needed</li>
+        <li className="hover:text-gray-300">Easily find your path</li>
+      </ul>
+    </div>
+  </div>
+
+  {/* Social Links in Bottom Right */}
+  <div className="fixed bottom-[-82rem] left-[53px] flex gap-[30px]">
+    {/* LinkedIn */}
+    <a href="https://www.linkedin.com/in/sakshi-soni91/details/featured/" target="_blank" rel="noopener noreferrer">
+      <CiLinkedin size={35} className="text-white hover:text-blue-500" />
+    </a>
+
+    {/* Instagram - Replace with your friend's profile */}
+    <a href="https://www.instagram.com/friend_username" target="_blank" rel="noopener noreferrer">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="w-[35px] h-[35px] rounded-full hover:opacity-80" />
+    </a>
+    <h2 className="ml-[61rem]">TAKE A STEP TOWARDS YOUR DREAM</h2>
+  </div>
+</div>
+
         </div>
-      </div>
     </>
   );
 };
