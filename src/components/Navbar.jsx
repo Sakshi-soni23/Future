@@ -52,7 +52,7 @@ const Navbar = () => {
             <span>G</span>uide
           </h1>
         </div>
-        <div className="menu-links col-span-[3/4] flex justify-around  max-[1000px]:hidden ">
+        <div className="menu-links col-span-[3/4] flex justify-around  max-[900px]:bg-amber-700 ">
           <NavLink className="text-center" to={"/"}>
             Home <span className=""></span>
           </NavLink>
@@ -71,10 +71,10 @@ const Navbar = () => {
           <NavLink className="side-icon ">
             <PiDotsThreeOutlineVerticalLight />
           </NavLink>
-          <div id="google_translate_element" className="ml-4"></div>
+          {/* <div id="google_translate_element" className="ml-4"></div> */}
         </div>
       </nav>
-      <section className=" max-[1000px]:hidden">
+      <section className="">
         {bgImage ? (
           <img
             src={bgImage}

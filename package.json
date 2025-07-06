@@ -16,12 +16,13 @@
     "@tailwindcss/vite": "^4.1.5",
     "aos": "^2.3.4",
     "axios": "^1.6.0",
+    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "i18next": "^25.2.0",
     "i18next-browser-languagedetector": "^8.1.0",
-    "mongoose": "^8.15.0",
+    "mongoose": "^8.16.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -37,5 +38,17 @@
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.2.5",
     "vite": "^5.2.0"
-  }
+  },
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sakshi-soni23/Future.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sakshi-soni23/Future/issues"
+  },
+  "homepage": "https://github.com/Sakshi-soni23/Future#readme"
 }

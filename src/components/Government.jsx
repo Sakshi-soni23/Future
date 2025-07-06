@@ -24,36 +24,36 @@ const Government = () => {
   return (
     <>
       <div className="com-container">
-        <div className="comerece-heading flex justify-around text-center bg-[#DBFFCB] h-[83px]">
+        <div className="comerece-heading flex justify-around text-center bg-[#DBFFCB] h-[83px] w-[100rem] ">
           <div
-            className="back ml-[-10rem] mt-[2em] cursor-pointer"
+            className="back ml-[-10rem] mt-[2em] cursor-pointer max-[1000px]:ml-[-2rem ]"
             onClick={handleGoBack}
           >
-            <MdArrowBack />
+            <MdArrowBack className="max-[1000px]:size-[2rem]" />
           </div>
           <div
-            className="heading text-[35px] font-serif mt-[14px] mr-[7em]"
+            className="heading text-[35px] font-serif mt-[14px] mr-[9em] max-[1000px]:text-[2em] max-[1000px]:mr-[20rem] max-[1000px]:mt-[20px] max-[1000px]:font-bold"
             data-aos="fade-down-right"
           >
             WELCOME TO GOVERNMENT PAGE
           </div>
         </div>
-        <div className="Q mt-[53px] ml-[12em]">
-          <h2 className="text-[26px] leading-[61px]">
+        <div className="Q mt-[53px] ml-[12em] ">
+          <h2 className="text-[26px] leading-[61px] max-[1000px]:text-[16px]">
             Why Preparing For Government Exam After 10th?
           </h2>
-          <p className="text-[16px] w-[68rem] font-serif">
+          <p className="text-[16px] w-[68rem] font-serif max-[1000px]:text-[16px] max-[1000px]:w-[50rem]">
             Government jobs are one of the most secure and respected career
             paths in India. Here are the top options you can consider based on
             your qualification:
           </p>
         </div>
-        <div className="example">
+        <div className="example max-[1000px]:hidden">
           <div className="fewoptions ml-[12rem] mt-[2rem]">
-            <h1 className="text-[21px]">
+            <h1 className="text-[21px] max-[1000px]:text-[16px]">
               1. Indian Army (Soldier GD, Tradesman)
             </h1>
-            <ul className="leading-[38px] ml-[27px]">
+            <ul className="leading-[38px] ml-[27px] max-[1000px]:text-[16px]">
               <li>Eligibility: 10th pass</li>
               <li>Age Limit: 17.5 to 21 years</li>
               <li>Selection: Physical Test + Written Exam</li>
@@ -61,8 +61,10 @@ const Government = () => {
             </ul>
           </div>
           <div className="fewoptions ml-[12rem] mt-[2rem]">
-            <h1 className="text-[21px]">2. Railway Group D</h1>
-            <ul className="lleading-[38px] ml-[27px]">
+            <h1 className="text-[21px] max-[1000px]:text-[16px]">
+              2. Railway Group D
+            </h1>
+            <ul className="lleading-[38px] ml-[27px] max-[1000px]:text-[16px]">
               <li>Eligibility: 10th pass</li>
               <li>Age Limit: 18 to 33 years</li>
               <li>Selection: CBT + Physical + Medical</li>
@@ -70,10 +72,10 @@ const Government = () => {
             </ul>
           </div>
           <div className="fewoptions ml-[12rem] mt-[2rem]">
-            <h1 className="text-[21px]">
+            <h1 className="text-[21px] max-[1000px]:text-[16px]">
               3. SSC CHSL (LDC, Data Entry Operator)
             </h1>
-            <ul className="leading-[38px] ml-[27px]">
+            <ul className="leading-[38px] ml-[27px] max-[1000px]:text-[16px]">
               <li>Eligibility: 12th pass</li>
               <li>Age Limit: 18 to 27 years</li>
               <li>Exam Stages: Tier 1, Tier 2, Typing Test</li>
@@ -81,8 +83,10 @@ const Government = () => {
             </ul>
           </div>
           <div className="fewoptions ml-[12rem] mt-[2rem]">
-            <h1 className="text-[21px]">4. NDA (National Defence Academy)</h1>
-            <ul className="leading-[38px] ml-[27px]">
+            <h1 className="text-[21px] max-[1000px]:text-[16px]">
+              4. NDA (National Defence Academy)
+            </h1>
+            <ul className="leading-[38px] ml-[27px] max-[1000px]:text-[16px]">
               <li>Eligibility: 12th pass (PCM for Air Force & Navy)</li>
               <li>Age Limit: 16.5 to 19.5 years</li>
               <li>Selection: UPSC Exam + SSB Interview + Medical</li>
@@ -91,9 +95,11 @@ const Government = () => {
           </div>
         </div>
 
-{/* cards */}
+        {/* cards */}
         <div
-          className="card1  card relative   h-[24rem] flex justify-items-start gap-[63px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card1  card relative  h-[24rem] flex justify-items-start gap-[63px] border-2 border-black
+           w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden max-[1000px]:h-[10rem] max-[1000px]:w-[20rem]
+            max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -101,10 +107,10 @@ const Government = () => {
             <img
               src={civil}
               alt=""
-              className="w-[23rem] h-[20rem] ml-[2rem] mt-[2em] rounded-2xl"
+              className="w-[23rem] h-[20rem] ml-[2rem] mt-[2em] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em]"
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail max-[1000px]:hidden">
             <h1 className="title text-[25px] mt-[15px] text-center font-serif">
               Civil Services
             </h1>
@@ -130,7 +136,7 @@ const Government = () => {
             <Link to={"https://en.wikipedia.org/wiki/Civil_Services_of_India"}>
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -139,7 +145,8 @@ const Government = () => {
         </div>
 
         <div
-          className="card2  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card2  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer 
+          overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -147,10 +154,10 @@ const Government = () => {
             <img
               src={bank}
               alt=""
-              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl"
+              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em] "
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[19px] mt-[15px] text-center font-serif">
               Banking Exams (SBI / IBPS / RBI)
             </h1>
@@ -181,7 +188,7 @@ const Government = () => {
             >
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -190,7 +197,8 @@ const Government = () => {
         </div>
 
         <div
-          className="card3  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card3  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px]
+            rounded-2xl cursor-pointer overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -198,10 +206,10 @@ const Government = () => {
             <img
               src={defense}
               alt=""
-              className="w-[23rem] h-[17rem] ml-[2rem] mt-[35px] rounded-2xl"
+              className="w-[23rem] h-[17rem] ml-[2rem] mt-[35px] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em]"
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[19px] mt-[15px] text-center font-serif">
               Defence Exams (Army / Navy / Air Force)
             </h1>
@@ -228,7 +236,7 @@ const Government = () => {
             <Link to={"https://en.wikipedia.org/wiki/Defense"}>
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -237,7 +245,7 @@ const Government = () => {
         </div>
 
         <div
-          className="card4  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card4  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -245,10 +253,10 @@ const Government = () => {
             <img
               src={railway}
               alt=""
-              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl"
+              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em]"
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[19px] mt-[15px] text-center font-serif">
               Railway Jobs (RRB Exams)
             </h1>
@@ -276,7 +284,7 @@ const Government = () => {
             <Link to={"https://en.wikipedia.org/wiki/Railway_jobs"}>
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -285,7 +293,7 @@ const Government = () => {
         </div>
 
         <div
-          className="card5  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card5  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -293,10 +301,10 @@ const Government = () => {
             <img
               src={teaching}
               alt=""
-              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl"
+              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em]"
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[19px] mt-[15px] text-center font-serif">
               Teaching Jobs (Government Schools & Colleges)
             </h1>
@@ -323,7 +331,7 @@ const Government = () => {
             <Link to={"https://en.wikipedia.org/wiki/Teaching_job"}>
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -332,7 +340,7 @@ const Government = () => {
         </div>
 
         <div
-          className="card6  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card6  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -340,10 +348,10 @@ const Government = () => {
             <img
               src={law}
               alt=""
-              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl"
+              className="w-[23rem] h-[20rem] ml-[2rem] mt-[55px] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em] "
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[19px] mt-[15px] text-center font-serif">
               Law & Judiciary Jobs (Judicial Services / Legal Officers)
             </h1>
@@ -373,7 +381,7 @@ const Government = () => {
             <Link to={"https://en.wikipedia.org/wiki/Law"}>
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -382,7 +390,7 @@ const Government = () => {
         </div>
 
         <div
-          className="card7  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card7  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[9rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -390,10 +398,10 @@ const Government = () => {
             <img
               src={miss}
               alt=""
-              className="w-[23rem] h-[20rem] ml-[2rem] mt-[1em] rounded-2xl"
+              className="w-[23rem] h-[20rem] ml-[2rem] mt-[1em] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em]"
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[25px] mt-[15px] text-center font-serif">
               Miscellaneous Govt. Jobs
             </h1>
@@ -427,7 +435,7 @@ const Government = () => {
             >
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>
@@ -436,7 +444,7 @@ const Government = () => {
         </div>
 
         <div
-          className="card8  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden"
+          className="card8  card relative  flex justify-items-start gap-[73px] border-2 border-black w-[42rem] ml-[48rem] mt-[70px] rounded-2xl cursor-pointer overflow-hidden  max-[1000px]:h-[10rem] max-[1000px]:w-[20rem] max-[1000px]:rounded-[10px] max-[1000px]:ml-[20rem] max-[1000px]:gap-[50px]"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
@@ -444,10 +452,10 @@ const Government = () => {
             <img
               src={post}
               alt=""
-              className="w-[23rem] h-[22rem] ml-[2rem] mt-[3em] rounded-2xl"
+              className="w-[23rem] h-[22rem] ml-[2rem] mt-[3em] rounded-2xl max-[1000px]:w-[16rem] max-[1000px]:h-[7rem] max-[1000px]:mt-[1em]"
             />
           </div>
-          <div className="cards-detail">
+          <div className="cards-detail  max-[1000px]:hidden">
             <h1 className="title text-[25px] mt-[15px] text-center font-serif">
               Post Office Jobs (India Post)
             </h1>
@@ -476,7 +484,7 @@ const Government = () => {
             <Link to={"https://en.wikipedia.org/wiki/Post_office"}>
               <button
                 className="btn border-2 rounded-2xl border-black w-[122px] p-3 -ml-[24rem] cursor-pointer
-                     mt-[10rem] bg-[#7fb078]"
+                     mt-[10rem] bg-[#7fb078] max-[1000px]:w-[80px] max-[1000px]:mt-[5rem] max-[1000px]:ml-[-10rem] max-[1000px]:text-[10px]"
               >
                 Read More
               </button>

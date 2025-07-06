@@ -21,27 +21,31 @@ const FeedBack = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(feedback);
-  }
+    try {
+      // Send feedback to backend
+      await axios.post("http://localhost:5000/feedback", feedback);
+  
+      // Show success message
+      window.alert("Feedback submitted successfully!");
+  
+      // Clear form fields
+      setFeedback({
+        username: "",
+        email: "",
+        yourexperience: "",
+      });
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+      window.alert("Something went wrong while submitting your feedback.");
+    }
+  };
+  
 
   const handleGoBack = () => {
     navigate(-1);
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     // You can replace the URL with your actual endpoint
-  //     await axios.post("http://localhost:5000/feedback", feedback);
-  //     alert("Feedback submitted successfully!");
-  //     setFeedback({ username: "", email: "", yourexperience: "" });
-  //   } catch (error) {
-  //     console.error("Error submitting feedback:", error);
-  //     alert("There was an error submitting your feedback.");
-  //   }
-  // };
 
   return (
     <div className="min-h-screen bg-blue-50 flex flex-col items-center py-8 px-4">

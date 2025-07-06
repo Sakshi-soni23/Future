@@ -31,33 +31,40 @@ const Field = () => {
         </nav>
       </div>
       <div className="below-part cursor-pointer">
-        {/* <img src={} alt="" className="w-[98rem] h-[93vh]" /> */}
         <div className="heading font-sans text-center font-bold text-[2em] mt-[5em]">
-          <h1>
+          <h1 className="max-[1000px]:text-[10px]">
             "The future belongs to those who choose with courage, not with
             fear."
           </h1>
         </div>
-        <div className="img flex justify-center  gap-[60px] mt-[5rem] ">
+        <div
+          className="img flex flex-wrap justify-center items-center gap-[60px] mt-[5rem] 
+  max-[1000px]:gap-[30px] 
+  max-[900px]:flex-col max-[900px]:ml-0"
+        >
           <img
             src={ambani}
             alt=""
-            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black 
+      max-[1000px]:w-[10rem] max-[1000px]:h-[8rem]"
           />
           <img
             src={vinita}
             alt=""
-            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black 
+      max-[1000px]:w-[10rem] max-[1000px]:h-[8rem]"
           />
           <img
             src={virat}
             alt=""
-            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black 
+      max-[1000px]:w-[10rem] max-[1000px]:h-[8rem]"
           />
           <img
             src={google}
             alt=""
-            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black"
+            className="w-[18rem] h-[13rem] rounded-2xl hover:border-4 border-black 
+      max-[1000px]:w-[10rem] max-[1000px]:h-[8rem]"
           />
         </div>
       </div>
