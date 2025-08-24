@@ -45,7 +45,7 @@ const Navbar = () => {
   
   return (
     <>
-      <nav className=" main-nav">
+      <nav className="main-nav">
         <div className="title">
           <h1>
             <span>F</span>uture-
@@ -85,7 +85,7 @@ const Navbar = () => {
      max-[1000px]:w-[56rem]"
           />
         ) : null}
-        <h1 className=" head -mt-[27rem] ml-[53rem]  w-[21rem] max-[1000px]:ml-[35rem] max-[1000px]:-mt-[25rem]">
+        <h1 className=" head -mt-[27rem] ml-[53rem]  w-[21rem] max-[1000px]:ml-[35rem] max-[1000px]:-mt-[25rem] text-black">
           Shape Your Future By Choosing Correct Path Today !!
         </h1>
       </section>
@@ -122,7 +122,7 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className="h-[40rem] bg-amber-600 mt-[77px]"
+          className="h-[40rem] bg-amber-600 mt-[80px]"
           data-aos="fade-up"
           data-aos-duration="3000"
           data-aos-delay="1000"
@@ -239,7 +239,7 @@ const Navbar = () => {
           </div>
         </div>
 
-  <div className="footer fixed bottom-0 w-full bg-black text-white py-6 px-10">
+  <div className="footer fixed bottom-0 w-full bg text-white py-6 px-10">
   <div className="footer-contain flex justify-around">
     {/* Experienced Mentors */}
     <div className="footer-main">

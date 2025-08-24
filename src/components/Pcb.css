@@ -1,71 +1,20 @@
-.pcm-head{
-    margin:20px 30px 30px ;
-}
-span{
-    font-family: 'Times New Roman', Times, serif;
-}
-/* .main-pcm{
-    background-color: burlywood;
-        box-shadow: -33px -6px 24px 29px bisque;
-} */
+
+
  body{
     background-color: #FFEDFA;
  }
- .question{
-    margin: 21px 107px 30px;
-        font-size: 26px;
-        text-transform: uppercase;
-        font-family: fangsong;
- }
- .ans{
-    margin: 0px 116px 7px;
-        font-size: 19px;
- }
- .pcm-img{
-width: 56vh;
-    height: 17rem;
-    border-radius: 10px;
-    margin: 30px 24px 19px;
- }
- .card:hover{
-box-shadow: 15px 9px 46px 7px #526E48;
- }
- .card-btn{
-    display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        right: -500px;
-        transition: 2s;
-        cursor: pointer;
-        
- }
+ 
+ 
+ 
 .card:hover .card-btn{
     right: 1rem;
 
  }
- .other-para{
-    width: 20rem;
-        line-height: 2;
-        font-size: 14px;
-        padding: 13px;
-        font-family: emoji;
- }
+ 
    .other-card:hover .other-btn{
         bottom: 132px;
             top: 31px;
             cursor:pointer;
             text-align: center;
    } 
-   .other-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    top: 35vh;
-    transition: 2s;
-    padding: 17px;
-    cursor: pointer;
-   }
+  

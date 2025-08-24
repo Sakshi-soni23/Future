@@ -122,3 +122,10 @@ body {
    cursor: pointer;
    margin-top: 1rem;
 }
+.footer-social {
+   position: absolute;
+   bottom: 1rem;
+   right: 2rem;
+   display: flex;
+   gap: 1.5rem;
+}

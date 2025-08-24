@@ -12,6 +12,10 @@ const FeedBack = () => {
     yourexperience: "",
   });
 
+  const [emailError, setEmailError] = useState(false);
+  const [experienceError, setExperienceError] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -21,27 +25,47 @@ const FeedBack = () => {
     }));
   };
 
+  // Email validation
+  const validateEmail = (val) => {
+    const emailregex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+    if (emailregex.test(val)) {
+      setEmailError(false);
+    } else {
+      setEmailError(true);
+    }
+  };
+
+  // Experience validation
+  const validateExperience = (val) => {
+    const experi = /^[a-zA-Z0-9\s.,!?'"-]+$/; // allows words, space, punctuation
+    if (experi.test(val)) {
+      setExperienceError(false);
+    } else {
+      setExperienceError(true);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send feedback to backend
-      await axios.post("http://localhost:5000/feedback", feedback);
-  
-      // Show success message
-      window.alert("Feedback submitted successfully!");
-  
-      // Clear form fields
-      setFeedback({
-        username: "",
-        email: "",
-        yourexperience: "",
+      let res = await axios.post("http://localhost:5000/feedback", feedback, {
+        headers: { "Content-Type": "application/json" },
       });
+
+      if (res.status === 200) {
+        setSuccessMsg("✅ Thank you! Your feedback has been submitted.");
+        setFeedback({
+          username: "",
+          email: "",
+          yourexperience: "",
+        });
+        setTimeout(() => setSuccessMsg(""), 4000); // auto clear after 4 sec
+      }
     } catch (error) {
       console.error("Error submitting feedback:", error);
-      window.alert("Something went wrong while submitting your feedback.");
+      setSuccessMsg("❌ Something went wrong. Please try again.");
     }
   };
-  
 
   const handleGoBack = () => {
     navigate(-1);
@@ -64,7 +88,14 @@ const FeedBack = () => {
         </h1>
 
         <div className="bg-white rounded-3xl shadow-md p-8 w-full">
+          {successMsg && (
+            <div className="mb-4 text-center text-green-600 font-medium">
+              {successMsg}
+            </div>
+          )}
+
           <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+            {/* User Name */}
             <div>
               <label className="block text-gray-700 font-medium mb-1">
                 User Name
@@ -81,6 +112,7 @@ const FeedBack = () => {
               />
             </div>
 
+            {/* Email */}
             <div>
               <label className="block text-gray-700 font-medium mb-1">
                 Email
@@ -90,13 +122,22 @@ const FeedBack = () => {
                 name="email"
                 value={feedback.email}
                 autoComplete="off"
-                onChange={handleInput}
+                onChange={(e) => {
+                  handleInput(e);
+                  validateEmail(e.target.value);
+                }}
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
                 required
               />
+              {emailError && (
+                <p style={{ color: "red", fontSize: "12px" }}>
+                  Enter a valid email address
+                </p>
+              )}
             </div>
 
+            {/* Experience */}
             <div>
               <label className="block text-gray-700 font-medium mb-1">
                 Your Experience
@@ -104,16 +145,26 @@ const FeedBack = () => {
               <textarea
                 name="yourexperience"
                 value={feedback.yourexperience}
-                onChange={handleInput}
+                onChange={(e) => {
+                  handleInput(e);
+                  validateExperience(e.target.value);
+                }}
                 placeholder="Write about your experience..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-300"
                 required
               ></textarea>
+              {experienceError && (
+                <p style={{ color: "red", fontSize: "12px" }}>
+                  Please use valid characters only
+                </p>
+              )}
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-all duration-200"
+              disabled={emailError || experienceError}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-all duration-200 disabled:bg-gray-400"
             >
               Submit Feedback
             </button>

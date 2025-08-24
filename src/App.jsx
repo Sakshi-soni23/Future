@@ -15,6 +15,15 @@ import Government from "./components/Government";
 import Commerece from "./components/Commerece";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PcmB from "./components/PcmB";
+import User from "./components/User";
+import Left from "./components/Left";
+import Right from "./components/Right";
+import Search from "./components/Search";
+import Users from "./components/Users";
+import Logout from "./components/Logout";
+import Chatuser from "./components/Chatuser";
+import Message from "./components/Message";
+
 function App() {
   const [count, setCount] = useState(0);
   const router = createBrowserRouter([
@@ -100,13 +109,77 @@ function App() {
       ),
     },
     {
-      path:"/Government",
-      element:(
+      path: "/Government",
+      element: (
         <>
-        <Government/>
+          <Government />
         </>
-      )
-    }
+      ),
+    },
+    {
+      path: "/User",
+      element: (
+        <>
+          <User />
+        </>
+      ),
+    },
+    {
+      path: "/Left",
+      element: (
+        <>
+          <Left />
+        </>
+      ),
+    },
+    {
+      path: "/Right",
+      element: (
+        <>
+          <Right />
+        </>
+      ),
+    },
+    {
+      path: "/Search",
+      element: (
+        <>
+          <Search />
+        </>
+      ),
+    },
+    {
+      path: "/Users",
+      element: (
+        <>
+          <Users />
+        </>
+      ),
+    },
+    {
+      path: "/Logout",
+      element: (
+        <>
+          <Logout />
+        </>
+      ),
+    },
+    {
+      path: "/Chatuser",
+      element: (
+        <>
+          <Chatuser />
+        </>
+      ),
+    },
+    {
+      path: "/Message",
+      element: (
+        <>
+          <Message/>
+        </>
+      ),
+    },
   ]);
   return  <RouterProvider router={router} />
   
