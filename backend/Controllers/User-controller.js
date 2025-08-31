@@ -1,6 +1,7 @@
 import User from "../models/user-models.js";
 import bcrypt from "bcryptjs";
 import usertoken from "../jwt/generate-token.js";
+import Feedback from "../models/feedback.js";
 // signup controller
  export const signup = async (req, res) => {
     try {
@@ -85,4 +86,53 @@ export const logout = async (req,res)=>{
     }
 
 }
+export const feedback = async (req, res) => {
+    try {
+        const { fullname, email, experience } = req.body;
+
+        // ✅ Check if feedback already exists with this email
+        const existingFeedback = await Feedback.findOne({ email });
+        if (existingFeedback) {
+            return res.status(400).json({ message: "Feedback already submitted with this email" });
+        }
+
+        // ✅ Use Feedback model instead of User
+        const newFeedback = new Feedback({
+            fullname,
+            email,
+            experience,
+        });
+
+        await newFeedback.save();
+
+        return res.status(201).json({
+            message: "Feedback submitted successfully",
+            feedback: {
+                _id: newFeedback._id,
+                fullname: newFeedback.fullname,
+                email: newFeedback.email,
+                experience: newFeedback.experience,
+            }
+        });
+
+    } catch (error) {
+        res.status(500).json({ message: "Server error, please try again" });
+        console.error(error);
+    }
+};
+
+
+
+export const getUserProfile = async (req, res) => {
+    try {
+        const logged = req.user._id;
+
+        const allusers = await User.find({ _id: { $ne: logged } }).select("-password");
+
+        res.status(200).json({ allusers }); // ✅ wrapped in object
+    } catch (error) {
+        console.error("getUserProfile error:", error);
+        res.status(500).json({ message: "Could not fetch users" });
+    }
+};
 

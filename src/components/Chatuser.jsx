@@ -1,10 +1,14 @@
 import React from "react";
 import Message from "./Message";
 import { IoSend } from "react-icons/io5";
+import Usegetmessage from "./Usegetmessage.js";
 
 const Chatuser = () => {
+  const { messages, loading } = Usegetmessage();
+  console.log(messages);
   return (
     <div className="flex flex-col h-screen bg-[#0d1321]">
+      {!loading && messages.length === 0 && <div> <p className="text-white mt-[20%] text-3xl">Say hi</p></div>}
       {/* Chat Header */}
       <div className="flex space-x-3.5 py-2.5 bg-slate-800 items-center px-4">
         <div className="avatar avatar-online">
@@ -13,7 +17,7 @@ const Chatuser = () => {
           </div>
         </div>
         <div>
-          <h1 className="text-[14px]">Sanvi sharma</h1>
+          <h1 className="text-[14px]">san</h1>
           <span className="text-[10px]">Online</span>
         </div>
       </div>
@@ -21,12 +25,7 @@ const Chatuser = () => {
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-2 space-y-2">
         <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
+       
       </div>
 
       {/* Chat Input (sticks at bottom of this section only) */}

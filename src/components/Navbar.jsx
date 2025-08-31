@@ -122,175 +122,112 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className="h-[40rem] bg-amber-600 mt-[80px]"
+          className="h-[40rem] bg-white mt-[80px]"
           data-aos="fade-up"
           data-aos-duration="3000"
-          data-aos-delay="1000"
         >
           <span
             className=" text-[80px] ml-[37rem]"
             data-aos="fade-right"
             data-aos-duration="1000"
-            data-aos-delay="1000"
           >
-            Mentor's
+            Query
           </span>
-          <div className="mentors-info cursor-pointer">
-            <div className="first-mentor flex justify-around  gap-[9px]">
-              <ul>
-                <li>
-                  <img
-                    src={men3}
-                    alt=""
-                    className="rounded-[50%] border-3 border-black w-[100px] h-[95px]"
-                  />
-                  <h1 className="ml-[11px] text-[20px] leading-[45px]">
-                    Vijay Kumar
-                  </h1>
-                  <p className="-ml[22px]">Data Scienctist in Google</p>
-                  <span className="text-[11px] ml-[15px]">
-                    6 year Experienced
-                  </span>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <img
-                    src={men2}
-                    alt=""
-                    className="rounded-[50%] border-3 border-black w-[100px] h-[95px]"
-                  />
-                  <h1 className="ml-[11px] text-[20px] leading-[45px]">
-                    priya tiwari
-                  </h1>
-                  <p className="-ml[22px]">AI expert in Microsoft</p>
-                  <span className="text-[11px] ml-[15px]">
-                    5 year Experienced
-                  </span>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <img
-                    src={mentor}
-                    alt=""
-                    className="rounded-[50%] border-3 border-black w-[100px] h-[95px]"
-                  />
-                  <h1 className="ml-[0px] text-[20px] leading-[45px]">
-                    Rony Roy
-                  </h1>
-                  <p className="-ml[22px]">Graphic Designer</p>
-                  <span className="text-[11px] ml-[15px]">
-                    8 year Experienced
-                  </span>
-                </li>
-              </ul>
+
+          <div className="flex w-[30em] flex-col gap-4 ml-56 mt-19">
+            <div className="flex items-center gap-4">
+              <div className="skeleton h-20 w-24 shrink-0 rounded-full">
+                
+              </div>
+              <div className="flex flex-col gap-4">
+                <div className="skeleton h-4 w-20"></div>
+                <div className="skeleton h-4 w-28"></div>
+              </div>
             </div>
-            <div className="seconf-mentor flex justify-around gap-[19px] mt-[60px]">
-              <ul>
-                <li>
-                  <img
-                    src={mentor}
-                    alt=""
-                    className="rounded-[50%] border-3 border-black w-[100px] h-[95px]"
-                  />
-                  <h1 className="ml-[0px] text-[20px] leading-[45px]">
-                    Rony Roy
-                  </h1>
-                  <p className="-ml[22px]">Graphic Designer</p>
-                  <span className="text-[11px] ml-[15px]">
-                    8 year Experienced
-                  </span>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <img
-                    src={mentor}
-                    alt=""
-                    className="rounded-[50%] border-3 border-black w-[100px] h-[95px]"
-                  />
-                  <h1 className="ml-[0px] text-[20px] leading-[45px]">
-                    Rony Roy
-                  </h1>
-                  <p className="-ml[22px]">Graphic Designer</p>
-                  <span className="text-[11px] ml-[15px]">
-                    8 year Experienced
-                  </span>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <img
-                    src={mentor}
-                    alt=""
-                    className="rounded-[50%] border-3 border-black w-[100px] h-[95px]"
-                  />
-                  <h1 className="ml-[0px] text-[20px] leading-[45px]">
-                    Rony Roy
-                  </h1>
-                  <p className="-ml[22px]">Graphic Designer</p>
-                  <span className="text-[11px] ml-[15px]">
-                    8 year Experienced
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <div className="skeleton h-32 w-full"></div>
           </div>
         </div>
 
-  <div className="footer fixed bottom-0 w-full bg text-white py-6 px-10">
-  <div className="footer-contain flex justify-around">
-    {/* Experienced Mentors */}
-    <div className="footer-main">
-      <h1 className="text-[16px] font-light mb-[20px]">Experienced Mentors</h1>
-      <ul className="text-[12px] leading-[23px]">
-        <li className="hover:text-gray-300">Ritesh Agarwal</li>
-        <li className="hover:text-gray-300">Ritesh Agarwal</li>
-        <li className="hover:text-gray-300">Ritesh Agarwal</li>
-        <li className="hover:text-gray-300">Ritesh Agarwal</li>
-      </ul>
-    </div>
+        <div className="footer fixed bottom-0 w-full bg-black text-white py-6 px-10">
+          <div className="footer-contain flex justify-around">
+            {/* Experienced Mentors */}
+            <div className="footer-main">
+              <h1 className="text-[16px] font-light mb-[20px]">
+                Experienced Mentors
+              </h1>
+              <ul className="text-[12px] leading-[23px]">
+                <li className="hover:text-gray-300">Ritesh Agarwal</li>
+                <li className="hover:text-gray-300">Ritesh Agarwal</li>
+                <li className="hover:text-gray-300">Ritesh Agarwal</li>
+                <li className="hover:text-gray-300">Ritesh Agarwal</li>
+              </ul>
+            </div>
 
-    {/* Facilities */}
-    <div className="footer-main">
-      <h1 className="text-[16px] font-light mb-[20px]">Facilities</h1>
-      <ul className="text-[12px] leading-[23px]">
-        <NavLink to="/Query"><li className="hover:text-gray-300">Mentor's Talk</li></NavLink>
-        <NavLink to="/Ques"><li className="hover:text-gray-300">Q&A Hub</li></NavLink>
-        <NavLink to="/Field"><li className="hover:text-gray-300">All Fields</li></NavLink>
-        <NavLink to="/FeedBack"><li className="hover:text-gray-300">Feedback</li></NavLink>
-      </ul>
-    </div>
+            {/* Facilities */}
+            <div className="footer-main">
+              <h1 className="text-[16px] font-light mb-[20px]">Facilities</h1>
+              <ul className="text-[12px] leading-[23px]">
+                <NavLink to="/Query">
+                  <li className="hover:text-gray-300">Mentor's Talk</li>
+                </NavLink>
+                <NavLink to="/Ques">
+                  <li className="hover:text-gray-300">Q&A Hub</li>
+                </NavLink>
+                <NavLink to="/Field">
+                  <li className="hover:text-gray-300">All Fields</li>
+                </NavLink>
+                <NavLink to="/FeedBack">
+                  <li className="hover:text-gray-300">Feedback</li>
+                </NavLink>
+              </ul>
+            </div>
 
-    {/* Student Benefits */}
-    <div className="footer-main">
-      <h1 className="text-[16px] font-light mb-[20px]">Students Benefits</h1>
-      <ul className="text-[12px] leading-[23px]">
-        <li className="hover:text-gray-300">Learn about your interest</li>
-        <li className="hover:text-gray-300">Free to talk</li>
-        <li className="hover:text-gray-300">No registration needed</li>
-        <li className="hover:text-gray-300">Easily find your path</li>
-      </ul>
-    </div>
-  </div>
+            {/* Student Benefits */}
+            <div className="footer-main">
+              <h1 className="text-[16px] font-light mb-[20px]">
+                Students Benefits
+              </h1>
+              <ul className="text-[12px] leading-[23px]">
+                <li className="hover:text-gray-300">
+                  Learn about your interest
+                </li>
+                <li className="hover:text-gray-300">Free to talk</li>
+                <li className="hover:text-gray-300">No registration needed</li>
+                <li className="hover:text-gray-300">Easily find your path</li>
+              </ul>
+            </div>
+          </div>
 
-  {/* Social Links in Bottom Right */}
-  <div className="fixed bottom-[-82rem] left-[53px] flex gap-[30px]">
-    {/* LinkedIn */}
-    <a href="https://www.linkedin.com/in/sakshi-soni91/details/featured/" target="_blank" rel="noopener noreferrer">
-      <CiLinkedin size={35} className="text-white hover:text-blue-500" />
-    </a>
+          {/* Social Links in Bottom Right */}
+          <div className="fixed bottom-[-82rem] left-[53px] flex gap-[30px]">
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/sakshi-soni91/details/featured/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CiLinkedin
+                size={35}
+                className="text-white hover:text-blue-500"
+              />
+            </a>
 
-    {/* Instagram - Replace with your friend's profile */}
-    <a href="https://www.instagram.com/friend_username" target="_blank" rel="noopener noreferrer">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="w-[35px] h-[35px] rounded-full hover:opacity-80" />
-    </a>
-    <h2 className="ml-[61rem]">TAKE A STEP TOWARDS YOUR DREAM</h2>
-  </div>
-</div>
-
+            {/* Instagram - Replace with your friend's profile */}
+            <a
+              href="https://www.instagram.com/friend_username"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"
+                className="w-[35px] h-[35px] rounded-full hover:opacity-80"
+              />
+            </a>
+            <h2 className="ml-[61rem]">TAKE A STEP TOWARDS YOUR DREAM</h2>
+          </div>
         </div>
+      </div>
     </>
   );
 };

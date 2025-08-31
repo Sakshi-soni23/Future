@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Query from "./components/Mentor's-Talk";
@@ -10,11 +9,9 @@ import Home from "./components/Home";
 import Pcm from "./components/Pcm";
 import Pcb from "./components/Pcb";
 import Arts from "./components/Arts";
-import Pcmb from "./components/PcmB";
+import PcmB from "./components/PcmB";
 import Government from "./components/Government";
 import Commerece from "./components/Commerece";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PcmB from "./components/PcmB";
 import User from "./components/User";
 import Left from "./components/Left";
 import Right from "./components/Right";
@@ -23,9 +20,11 @@ import Users from "./components/Users";
 import Logout from "./components/Logout";
 import Chatuser from "./components/Chatuser";
 import Message from "./components/Message";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -36,153 +35,29 @@ function App() {
         </>
       ),
     },
-    {
-      path: "/Field",
-      element: (
-        <>
-          <Field />
-        </>
-      ),
-    },
-    {
-      path: "/Ques",
-      element: (
-        <>
-          <Ques />
-        </>
-      ),
-    },
-    {
-      path: "/Query",
-      element: (
-        <>
-          <Query />
-        </>
-      ),
-    },
-    {
-      path: "/FeedBack",
-      element: (
-        <>
-          <FeedBAck />
-        </>
-      ),
-    },
-    {
-      path: "/stream/pcm",
-      element: (
-        <>
-          <Pcm />
-        </>
-      ),
-    },
-    {
-      path: "/stream/pcb",
-      element: (
-        <>
-          <Pcb />
-        </>
-      ),
-    },
-    {
-      path: "/stream/Pcmb",
-      element: (
-        <>
-          <PcmB />
-        </>
-      ),
-    },
-    {
-      path: "/stream/Arts",
-      element: (
-        <>
-          <Arts />
-        </>
-      ),
-    },
-    {
-      path: "/stream/commerece",
-      element: (
-        <>
-          <Commerece />
-        </>
-      ),
-    },
-    {
-      path: "/Government",
-      element: (
-        <>
-          <Government />
-        </>
-      ),
-    },
-    {
-      path: "/User",
-      element: (
-        <>
-          <User />
-        </>
-      ),
-    },
-    {
-      path: "/Left",
-      element: (
-        <>
-          <Left />
-        </>
-      ),
-    },
-    {
-      path: "/Right",
-      element: (
-        <>
-          <Right />
-        </>
-      ),
-    },
-    {
-      path: "/Search",
-      element: (
-        <>
-          <Search />
-        </>
-      ),
-    },
-    {
-      path: "/Users",
-      element: (
-        <>
-          <Users />
-        </>
-      ),
-    },
-    {
-      path: "/Logout",
-      element: (
-        <>
-          <Logout />
-        </>
-      ),
-    },
-    {
-      path: "/Chatuser",
-      element: (
-        <>
-          <Chatuser />
-        </>
-      ),
-    },
-    {
-      path: "/Message",
-      element: (
-        <>
-          <Message/>
-        </>
-      ),
-    },
+    { path: "/field", element: <Field /> },
+    { path: "/ques", element: <Ques /> },
+    { path: "/query", element: <Query /> }, // ✅ Chatbot + auth happens inside Query
+    { path: "/feedback", element: <FeedBAck /> },
+    { path: "/stream/pcm", element: <Pcm /> },
+    { path: "/stream/pcb", element: <Pcb /> },
+    { path: "/stream/pcmb", element: <PcmB /> },
+    { path: "/stream/arts", element: <Arts /> },
+    { path: "/stream/commerece", element: <Commerece /> },
+    { path: "/government", element: <Government /> },
+    { path: "/user", element: <User /> },
+    { path: "/left", element: <Left /> },
+    { path: "/right", element: <Right /> },
+    { path: "/search", element: <Search /> },
+    { path: "/users", element: <Users /> },
+    { path: "/logout", element: <Logout /> },
+    { path: "/chatuser", element: <Chatuser /> },
+    { path: "/message", element: <Message /> },
+    { path: "/signup", element: <Signup /> },
+    { path: "/login", element: <Login /> },
   ]);
-  return  <RouterProvider router={router} />
-  
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

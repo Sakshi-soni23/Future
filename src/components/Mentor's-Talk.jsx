@@ -1,26 +1,33 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { MdArrowBack } from "react-icons/md";
-import User from"./User";
-import Left from"./Left";
-import Right from"./Right";
-import Search from "./Search";
+import { Route, Routes } from "react-router-dom";
+import Left from "./Left";
+import Right from "./Right";
 import Logout from "./Logout";
-
+import Login from "./Login";
+import { useAuth } from "./AuthProvider";
+import Signup from "./Signup";
 
 const Query = () => {
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+  const { authuser } = useAuth();
+
   return (
-    <>
-      <div className="main flex h-screen">
-        <Logout/>
-        <Left />
-        <Right />
-      </div>
-      
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          authuser ? (
+            <div className="flex h-screen">
+              <Logout />
+              <Left />
+              <Right />
+            </div>
+          ) : (
+          
+            <Signup/>
+          )
+        }
+      />
+    </Routes>
   );
 };
 

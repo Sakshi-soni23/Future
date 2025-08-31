@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+
+
 
 const FeedBack = () => {
   const navigate = useNavigate();
 
   const [feedback, setFeedback] = useState({
-    username: "",
+    fullname: "",
     email: "",
-    yourexperience: "",
+    experience: "",
   });
 
   const [emailError, setEmailError] = useState(false);
@@ -48,16 +51,16 @@ const FeedBack = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:5000/feedback", feedback, {
+      let res = await axios.post("http://localhost:5004/user/feedback", feedback, {
         headers: { "Content-Type": "application/json" },
       });
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         setSuccessMsg("✅ Thank you! Your feedback has been submitted.");
         setFeedback({
-          username: "",
+          fullname: "",
           email: "",
-          yourexperience: "",
+          experience: "",
         });
         setTimeout(() => setSuccessMsg(""), 4000); // auto clear after 4 sec
       }
@@ -102,8 +105,8 @@ const FeedBack = () => {
               </label>
               <input
                 type="text"
-                name="username"
-                value={feedback.username}
+                name="fullname"
+                value={feedback.fullname}
                 autoComplete="off"
                 onChange={handleInput}
                 placeholder="Enter your name"
@@ -143,8 +146,8 @@ const FeedBack = () => {
                 Your Experience
               </label>
               <textarea
-                name="yourexperience"
-                value={feedback.yourexperience}
+                name="experience"
+                value={feedback.experience}
                 onChange={(e) => {
                   handleInput(e);
                   validateExperience(e.target.value);
