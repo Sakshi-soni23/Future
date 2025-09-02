@@ -1,52 +1,50 @@
 import React from "react";
-import Message from "./Message";
-import { IoSend } from "react-icons/io5";
-import Usegetmessage from "./Usegetmessage.js";
+import useConversation from "../components/Useconversation.js";
+import { useSocketContext } from "./useSocketContext.jsx";
 
-const Chatuser = () => {
-  const { messages, loading } = Usegetmessage();
-  console.log(messages);
+function Chatuser() {
+  const { selectedConversation } = useConversation();
+  const { onlineUsers } = useSocketContext();
+
+  // ✅ Add these logs to check your data
+  console.log("Selected Conversation:", selectedConversation);
+  console.log("Online Users:", onlineUsers);
+
+  if (!selectedConversation) {
+    return (
+      <div className="pl-5 pt-5 h-[12vh] flex items-center bg-gray-700">
+        <span className="text-white">No chat selected</span>
+      </div>
+    );
+  }
+
+  const getOnlineUsersStatus = (userId) => {
+    return onlineUsers?.includes(userId) ? "Online" : "Offline";
+  };
+
   return (
-    <div className="flex flex-col h-screen bg-[#0d1321]">
-      {!loading && messages.length === 0 && <div> <p className="text-white mt-[20%] text-3xl">Say hi</p></div>}
-      {/* Chat Header */}
-      <div className="flex space-x-3.5 py-2.5 bg-slate-800 items-center px-4">
-        <div className="avatar avatar-online">
-          <div className="w-10 rounded-full">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCIyTZVXyb90oYHRiiX6YkNUc0CnzGwWjI3Q&s" />
+    <div className="pl-5 pt-5 h-[12vh] flex space-x-4 bg-gray-700 hover:bg-gray-600 duration-300">
+      <div>
+        <div className="avatar online">
+          <div className="w-14 rounded-full">
+            <img
+              src={
+                selectedConversation.avatar || "https://via.placeholder.com/150"
+              }
+              alt={selectedConversation.fullname}
+            />
           </div>
         </div>
-        <div>
-          <h1 className="text-[14px]">san</h1>
-          <span className="text-[10px]">Online</span>
-        </div>
       </div>
-
-      {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-2 space-y-2">
-        <Message />
-       
+      <div>
+        <h1 className="text-xl text-white">{selectedConversation.fullname}</h1>
+        <span className="text-sm text-gray-300">
+          {getOnlineUsersStatus(selectedConversation._id)}
+        </span>
       </div>
-
-      {/* Chat Input (sticks at bottom of this section only) */}
-      <form
-        action=""
-        className="flex items-center w-full px-4 py-3 bg-[#0d1321] border-t border-gray-700"
-      >
-        <input
-          type="text"
-          placeholder="Type here"
-          className="flex-1 px-4 py-2 rounded-xl bg-[#1c2433] text-white focus:outline-none"
-        />
-        <button
-          type="submit"
-          className="ml-3 text-3xl text-blue-500 flex items-center justify-center"
-        >
-          <IoSend />
-        </button>
-      </form>
     </div>
   );
-};
+}
+
 
 export default Chatuser;

@@ -1,22 +1,32 @@
-import React from 'react'
+import React from "react";
 
-const Message = () => {
+function Message({ message }) {
+  const storedUser = localStorage.getItem("ChatApp");
+  const authUser = storedUser ? JSON.parse(storedUser) : null;
+
+  const itsMe = authUser ? message.senderId === authUser._id : false; // ✅ fixed
+
+  const chatName = itsMe ? "chat-end" : "chat-start";
+  const chatColor = itsMe ? "bg-blue-500" : "bg-gray-500";
+
+  const createdAt = message.createdAt
+    ? new Date(message.createdAt)
+    : new Date();
+  const formattedTime = createdAt.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
-    <>
-      <div className="message" >
-        <div className="chat chat-start">
-          <div className="chat-bubble chat-bubble-primary">
-            What kind of nonsense is this
-          </div>
+    <div className="p-2">
+      <div className={`chat ${chatName}`}>
+        <div className={`chat-bubble text-white ${chatColor}`}>
+          {message.message}
         </div>
-        <div className="chat chat-end">
-          <div className="chat-bubble chat-bubble-success">
-            You have been given a great honor.
-          </div>
-        </div>
+        <div className="chat-footer text-xs text-gray-300">{formattedTime}</div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default Message
+export default Message;

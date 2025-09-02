@@ -1,38 +1,25 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user-models.js";
 
-const Secureroutes = async (req, res, next) => {
+const secureRoute = async (req, res, next) => {
   try {
-    // Get token from cookie or Authorization header
-    let token = req.cookies.jwt;
-
-    if (!token && req.headers.authorization) {
-      const parts = req.headers.authorization.split(" ");
-      if (parts[0] === "Bearer" && parts[1]) {
-        token = parts[1];
-      }
-    }
-
+    const token = req.cookies.jwt;
     if (!token) {
-      return res.status(401).json({ message: "Not authorized, token missing" });
+      return res.status(401).json({ error: "No token, authorization denied" });
     }
-
-    const verified = jwt.verify(token, process.env.jwt_token); // ✅ env variable
-    if (!verified) {
-      return res.status(401).json({ message: "Invalid token" });
+    const decoded = jwt.verify(token, process.env.JWT_TOKEN);
+    if (!decoded) {
+      return res.status(401).json({ error: "Invalid Token" });
     }
-
-    const user = await User.findById(verified.userId).select("-password");
+    const user = await User.findById(decoded.userId).select("-password"); // current loggedin user
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(401).json({ error: "No user found" });
     }
-
-    req.user = user; // ✅ attach user for controller
+    req.user = user;
     next();
   } catch (error) {
-    console.error("SecureRoutes error:", error);
-    res.status(500).json({ message: "Internal server error" });
+    console.log("Error in secureRoute: ", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
-
-export default Secureroutes;
+export default secureRoute;

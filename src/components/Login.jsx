@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { setauthUser } = useAuth();
+  const { setAuthUser } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -15,22 +15,26 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      const response = await axios.post("/api/user/login", {
-        email: data.email,
-        password: data.password,
-      });
+const onSubmit = async (data) => {
+  try {
+    const response = await axios.post("http://localhost:5004/api/user/login", {
+      email: data.email,
+      password: data.password,
+    });
 
-      if (response.data) {
-        setauthUser(response.data); // set context
-        localStorage.setItem("messenger", JSON.stringify(response.data)); // optional persistence
-        navigate("/query"); // redirect to chatbot layout
-      }
-    } catch (error) {
-      alert(error.response?.data?.message || "Login failed");
+    if (response.data?.user) {
+      const { user } = response.data;
+      setAuthUser(user); // save in context
+      localStorage.setItem("messenger", JSON.stringify(user));
+      navigate("/query"); // redirect to chatbot
     }
-  };
+  } catch (error) {
+    console.error("Login failed:", error.response?.data || error);
+    alert(error.response?.data?.error || "Login failed");
+  }
+};
+
+
 
   return (
     <div className="flex h-screen justify-center items-center bg-gray-100">

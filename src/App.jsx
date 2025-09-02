@@ -19,7 +19,7 @@ import Search from "./components/Search";
 import Users from "./components/Users";
 import Logout from "./components/Logout";
 import Chatuser from "./components/Chatuser";
-import Message from "./components/Message";
+import Message from "./components/Messages";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

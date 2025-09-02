@@ -1,77 +1,54 @@
-import mongoose from "mongoose";
 import Conversation from "../models/Conversation.js";
 import Message from "../models/message-model.js";
-
-export const Sendmessage = async (req, res) => {
+export const sendMessage = async (req, res) => {
     try {
         const { message } = req.body;
         const { id: receiverId } = req.params;
-        const senderId = req.user.id;
-
-        // Validate ObjectIds
-        if (!mongoose.Types.ObjectId.isValid(senderId) || !mongoose.Types.ObjectId.isValid(receiverId)) {
-            return res.status(400).json({ error: "Invalid user ID" });
-        }
-
-        // Find or create conversation
+        const senderId = req.user._id; // current logged in user
         let conversation = await Conversation.findOne({
-            participants: { $all: [senderId, receiverId] },
+            members: { $all: [senderId, receiverId] },
         });
-
         if (!conversation) {
             conversation = await Conversation.create({
-                participants: [senderId, receiverId],
-                messages: [], // initialize empty array
+                members: [senderId, receiverId],
             });
         }
-
-        // Create new message
         const newMessage = new Message({
             senderId,
             receiverId,
             message,
         });
-
-        await newMessage.save(); // save message first
-        conversation.messages.push(newMessage._id); // push after message is saved
-        await conversation.save(); // save conversation
-
-        res.status(201).json({
-            message: "Message sent successfully",
-            newMessage,
-        });
+        if (newMessage) {
+            conversation.messages.push(newMessage._id);
+        }
+        // await conversation.save()
+        // await newMessage.save();
+        await Promise.all([conversation.save(), newMessage.save()]); // run parallel
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
+        res.status(201).json(newMessage);
     } catch (error) {
-        console.error("Error in sending message:", error);
-        res.status(500).json({ message: "Internal error", error: error.message });
+        console.log("Error in sendMessage", error);
+        res.status(500).json({ error: "Internal server error" });
     }
 };
 
-export const getmessage = async (req, res) => {
+export const getMessage = async (req, res) => {
     try {
-        const { id: chatUserId } = req.params;
-        const senderId = req.user.id;
-
-        console.log("🔹 SenderId:", senderId);
-        console.log("🔹 ChatUserId:", chatUserId);
-
-        if (!mongoose.Types.ObjectId.isValid(senderId) || !mongoose.Types.ObjectId.isValid(chatUserId)) {
-            return res.status(400).json({ message: "Invalid user ID" });
-        }
-
-        const conversationData = await Conversation.findOne({
-            participants: { $all: [senderId, chatUserId] },
+        const { id: chatUser } = req.params;
+        const senderId = req.user._id; // current logged in user
+        let conversation = await Conversation.findOne({
+            members: { $all: [senderId, chatUser] },
         }).populate("messages");
-
-        console.log("🔹 Conversation Data:", conversationData);
-
-        if (!conversationData) {
-            return res.status(200).json({ messages: [] });
+        if (!conversation) {
+            return res.status(201).json([]);
         }
-
-        res.status(200).json({ messages: conversationData.messages });
+        const messages = conversation.messages;
+        res.status(201).json(messages);
     } catch (error) {
-        console.error("Error in get message:", error);
-        res.status(500).json({ message: "Internal error", error: error.message });
+        console.log("Error in getMessage", error);
+        res.status(500).json({ error: "Internal server error" });
     }
 };
-

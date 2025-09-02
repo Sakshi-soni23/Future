@@ -1,26 +1,24 @@
 import mongoose from "mongoose";
-import Message from "./message-model.js";
-import User from "./user-models.js";
-
+import User from "../models/user-models.js";
+import Message from"./message-model.js";
 const conversationSchema = new mongoose.Schema(
     {
-        participants: [
+        members: [
             {
-                type: mongoose.Schema.Types.ObjectId, // ✅ should use .Types.ObjectId
-                ref: "User", // ✅ ref must be the model name string, not the imported model
+                type: mongoose.Schema.Types.ObjectId,
+                ref: User,
             },
         ],
         messages: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Message", // ✅ string, not direct import
+                ref: Message,
+                default: [],
             },
         ],
     },
-    {
-        timestamps: true,
-    }
+    { timestamps: true }
 );
 
-const Conversation = mongoose.model("Conversation", conversationSchema);
+const Conversation = mongoose.model("conversation", conversationSchema);
 export default Conversation;

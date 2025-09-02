@@ -1,33 +1,37 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 
 function useGetAllUsers() {
   const [allUsers, setAllUsers] = useState([]);
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getUser = async () => {
-      setloading(true);
+    const getUsers = async () => {
+      setLoading(true);
       try {
         const token = Cookies.get("jwt");
-        const response = await axios.get("/api/user/getUserProfile", {
-          withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
 
-        // Assuming backend sends an array directly
-        setAllUsers(response.data.allusers || response.data);
+        // Make sure to use full backend URL
+        const response = await axios.get(
+          "http://localhost:4001/api/user/allusers",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true, // correct way to include credentials
+          }
+        );
+
+        setAllUsers(response.data);
       } catch (error) {
         console.log("Error in useGetAllUsers:", error);
       } finally {
-        setloading(false);
+        setLoading(false);
       }
     };
 
-    getUser();
+    getUsers();
   }, []);
 
   return [allUsers, loading];

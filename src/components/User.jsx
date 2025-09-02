@@ -1,23 +1,25 @@
 import React from "react";
-import Users from "./Users";
-import useGetAllUsers from "../components/Usergetalluser"; // make sure the hook name matches
+import User from "./User";
+import useGetAllUsers from "../components/Usergetalluser";
 
-const User = () => {
-  const [allUsers, loading] = useGetAllUsers(); // use the hook correctly
-
+function Users() {
+  const [allUsers, loading] = useGetAllUsers();
   console.log(allUsers);
-
-  if (loading) return <p>Loading users...</p>;
-
   return (
-    <div style={{ maxHeight: "calc(78vh)" }} className="overflow-y-auto">
-      {Array.isArray(allUsers) && allUsers.length > 0 ? (
-        allUsers.map((user) => <Users key={user._id} user={user} />)
-      ) : (
-        <p>No users found</p>
-      )}
+    <div>
+      <h1 className="px-8 py-2 text-white font-semibold bg-slate-800 rounded-md">
+        Messages
+      </h1>
+      <div
+        className="py-2 flex-1 overflow-y-auto"
+        style={{ maxHeight: "calc(84vh - 10vh)" }}
+      >
+        {allUsers.map((user, index) => (
+          <User key={index} user={user} />
+        ))}
+      </div>
     </div>
   );
-};
+}
 
-export default User;
+export default Users;

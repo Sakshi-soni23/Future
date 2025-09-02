@@ -1,15 +1,16 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-export const Authcontext = createContext();
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [authuser, setauthUser] = useState(null); // initially null, no auto-login
+  const [authUser, setAuthUser] = useState(null);
 
   return (
-    <Authcontext.Provider value={{ authuser, setauthUser }}>
+    <AuthContext.Provider value={{ authUser, setAuthUser }}>
       {children}
-    </Authcontext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => useContext(Authcontext);
+// Correct hook to consume context
+export const useAuth = () => useContext(AuthContext);
