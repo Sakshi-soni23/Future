@@ -12,16 +12,7 @@ import Arts from "./components/Arts";
 import PcmB from "./components/PcmB";
 import Government from "./components/Government";
 import Commerece from "./components/Commerece";
-import User from "./components/User";
-import Left from "./components/Left";
-import Right from "./components/Right";
-import Search from "./components/Search";
-import Users from "./components/Users";
-import Logout from "./components/Logout";
-import Chatuser from "./components/Chatuser";
-import Message from "./components/Messages";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -45,16 +36,6 @@ function App() {
     { path: "/stream/arts", element: <Arts /> },
     { path: "/stream/commerece", element: <Commerece /> },
     { path: "/government", element: <Government /> },
-    { path: "/user", element: <User /> },
-    { path: "/left", element: <Left /> },
-    { path: "/right", element: <Right /> },
-    { path: "/search", element: <Search /> },
-    { path: "/users", element: <Users /> },
-    { path: "/logout", element: <Logout /> },
-    { path: "/chatuser", element: <Chatuser /> },
-    { path: "/message", element: <Message /> },
-    { path: "/signup", element: <Signup /> },
-    { path: "/login", element: <Login /> },
   ]);
 
   return <RouterProvider router={router} />;

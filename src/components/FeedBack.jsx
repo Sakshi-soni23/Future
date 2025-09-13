@@ -51,9 +51,13 @@ const FeedBack = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:5004/user/feedback", feedback, {
-        headers: { "Content-Type": "application/json" },
-      });
+           let res = await axios.post(
+             "http://localhost:4001/user/feedback",
+             feedback,
+             {
+               headers: { "Content-Type": "application/json" },
+             }
+           );
 
       if (res.status === 201) {
         setSuccessMsg("✅ Thank you! Your feedback has been submitted.");
