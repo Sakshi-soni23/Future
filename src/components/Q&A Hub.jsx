@@ -16,7 +16,7 @@ const Videos = () => {
   return (
     <>
       <div className="video-body">
-        <div className="video flex justify-around bg-[#102E50]">
+        <div className="video flex justify-around bg-[#13633e]">
           <div
             className="back ml-[-89rem] mt-[20px] fixed"
             onClick={handleGoBack}

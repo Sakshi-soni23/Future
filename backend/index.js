@@ -1,20 +1,34 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import feedbackRoutes from "./router/Feedback-router.js"; // adjust path
-import dotenv from "dotenv";
+import express from 'express'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import chatrouter from './Routes/Chatbot-route.js'
+import cors from 'cors';
+import feedbackRoutes from "./Routes/Feedback-Routes.js";
 
-dotenv.config();
+const app = express()
+dotenv.config()
+const port = process.env.PORT||3000
+app.use(express.json())
+app.use(cors())
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('MongoDB connected')
+}).catch((err) => {
+    console.error('MongoDB connection error:', err)
+})
 
-app.use("/", feedbackRoutes);
+app.use("/user/feedback", feedbackRoutes);
 
-mongoose
-    .connect(process.env.MONGO_URL)
-    .then(() => console.log("MongoDB connected"))
-    .catch(err => console.log(err));
+app.use("/bot",chatrouter)
 
-app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
